@@ -5,7 +5,7 @@ class Book:
 	def __init__(self, title, author):
 		self.title = author
 		self.author = author
-		self.id = Model.id
+		self.id = Book.id
 		Book.book_list.append(self)
 		
 		Book.id += 1

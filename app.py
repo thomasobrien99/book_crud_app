@@ -25,38 +25,39 @@ def root():
 # INDEX
 @app.route('/books')
 def index():
-    return render_template('index.html', books = Book.book_list)
+    return render_template('index.html')#, books = Book.book_list)
 
 # NEW
 
 @app.route('/books/new')
 def new():
-    pass
+    return render_template('new.html')
 
 # SHOW
 @app.route('/books/<int:id>')
 def show(id):
-    pass
+    return render_template('show.html')
 
 # EDIT
 @app.route('/books/<int:id>/edit')
 def edit(id):
-    pass
+    return render_template('edit.html')
+    
 
 # CREATE
 @app.route('/books', methods=["POST"])
 def create():
-    pass
+    return redirect(url_for('index')) 
 
 # UPDATE
 @app.route('/books/<int:id>', methods=["PATCH"])
 def update(id):
-    pass
-
+    return redirect(url_for('index')) 
+    
 # DELETE
 @app.route('/books/<int:id>', methods=["DELETE"])
 def destroy(id):
-    pass
-
+    return redirect(url_for('index')) 
+    
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
